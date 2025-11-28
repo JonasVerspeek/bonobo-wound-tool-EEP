@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bonobo Wound Annotation Tool</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-left"><img src="great_ape_tag_logo.png" alt="Great Ape TAG Logo" class="logo"></div>
+        <div class="header-right"><img src="eep_logo.png" alt="EEP Logo" class="logo"></div>
+    </header>
+
+    <h1>Bonobo Wound Annotation Tool</h1>
+
+    <table class="form-table">
+        <tr><td>Animal Name:</td><td><input type="text" id="animalName" required></td></tr>
+        <tr><td>Date:</td><td><input type="date" id="date" required></td></tr>
+        <tr><td>Severity Score:</td><td>
+            <select id="severity" required>
+                <option value="">Select</option>
+                <option value="1">1 - Superficial scratch or scrape; may have partial break of skin</option>
+                <option value="2">2 - Shallow cut, skin broken</option>
+                <option value="3">3 - Moderate wound, less than 1 in deep, blood visible</option>
+                <option value="4">4 - Deep wound, more than 1 in deep, blood exiting wound</option>
+                <option value="5">5 - Severe wound, gaping, tissue or bone visible, may be missing body part</option>
+            </select>
+        </td></tr>
+        <tr><td>Confirmed Aggressor:</td><td>
+            <input type="checkbox" id="aggressor"> Name(s):
+            <input type="text" id="aggressorNames" style="display:none;">
+        </td></tr>
+        <tr><td>Veterinary Intervention:</td><td>
+            <input type="checkbox" class="vetOption" value="disinfect"> Disinfect
+            <input type="checkbox" class="vetOption" value="painkiller"> Painkiller
+            <input type="checkbox" class="vetOption" value="antibiotic"> Antibiotic
+            <input type="checkbox" class="vetOption" value="stitch"> Stitch
+            <input type="checkbox" class="vetOption" value="other"> Other
+        </td></tr>
+        <tr><td>Management Intervention:</td><td>
+            <input type="checkbox" id="management"> Details:
+            <textarea id="managementDetails" placeholder="Describe management intervention..." rows="3" cols="40" style="display:none;"></textarea>
+        </td></tr>
+        <tr><td>Additional Comments:</td><td><textarea id="comments" placeholder="Any extra notes..." rows="3" cols="40"></textarea></td></tr>
+    </table>
+
+    <button type="button" id="submitWound">Submit Wound</button>
+
+    <div id="canvas-container">
+        <div class="zoom-controls">
+            <button id="zoomIn">Zoom In</button>
+            <button id="zoomOut">Zoom Out</button>
+        </div>
+        <canvas id="annotationCanvas"></canvas>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
